@@ -1,0 +1,17 @@
+{
+  "name": "repo-onboard",
+  "description": "From idea to structured project. Guided spec interviews that produce requirements, design, tasks, and CLAUDE.md — before writing any code.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Danny AVRS"
+  },
+  "license": "MIT",
+  "keywords": [
+    "specs",
+    "onboarding",
+    "requirements",
+    "design",
+    "methodology",
+    "project-setup"
+  ]
+}
