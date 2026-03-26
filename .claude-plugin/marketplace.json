@@ -1,21 +1,16 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "repo-onboard",
+  "description": "From idea to structured project — guided spec interviews for Claude Code.",
   "owner": {
     "name": "Danny AVRS"
-  },
-  "metadata": {
-    "description": "From idea to structured project — guided spec interviews for Claude Code.",
-    "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "repo-onboard",
-      "source": ".",
       "description": "Guided spec interviews that produce requirements, design, tasks, and CLAUDE.md before writing any code.",
-      "version": "1.0.0",
-      "author": {
-        "name": "Danny AVRS"
-      }
+      "source": "./",
+      "category": "development"
     }
   ]
 }
