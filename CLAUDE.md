@@ -9,53 +9,53 @@ See @docs/requirements.md for the full product spec.
 
 ```
 repo-onboard/
-├── .claude/
-│   ├── plugin.json
-│   ├── settings.json
+├── .claude-plugin/
+│   ├── plugin.json                          # Plugin metadata
+│   └── marketplace.json                     # Marketplace listing
+│
+├── skills/
 │   │
-│   └── skills/
-│       │
-│       │ ── THE PIPELINE (one skill, progressive disclosure) ──
-│       │
-│       ├── project-onboard/                 # The main skill
-│       │   ├── SKILL.md                     # Orchestrates the full pipeline
-│       │   ├── references/
-│       │   │   ├── requirements-phase.md    # How to run requirements interview
-│       │   │   ├── review-phase.md          # How to review for gaps
-│       │   │   ├── design-phase.md          # How to run design interview
-│       │   │   ├── tasks-phase.md           # How to break into tasks
-│       │   │   └── claude-md-phase.md       # How to generate CLAUDE.md
-│       │   ├── assets/
-│       │   │   ├── requirements-template.md # Output template for requirements
-│       │   │   ├── design-template.md       # Output template for design
-│       │   │   ├── tasks-template.md        # Output template for tasks
-│       │   │   └── claude-md-template.md    # Output template for CLAUDE.md
-│       │   └── examples/
-│       │       └── repo-onboard.md          # Dogfooded: this project's own output
-│       │
-│       │ ── REVISE SKILLS (one per spec file) ──
-│       │
-│       ├── revise-requirements/
-│       │   └── SKILL.md                     # Reads existing, asks what changed
-│       ├── revise-design/
-│       │   └── SKILL.md                     # Reads reqs + design, re-interviews
-│       ├── revise-tasks/
-│       │   └── SKILL.md                     # Reads reqs + design, regenerates
-│       │
-│       │ ── SUPPORTING SKILLS (auto-discovered by Claude) ──
-│       │
-│       ├── explore-system/
-│       │   ├── SKILL.md
-│       │   └── assets/
-│       ├── investigate-bug/
-│       │   ├── SKILL.md
-│       │   └── assets/
-│       ├── stakeholder-brief/
-│       │   ├── SKILL.md
-│       │   └── assets/
-│       └── write-rfc/
-│           ├── SKILL.md
-│           └── assets/
+│   │ ── THE PIPELINE (one skill, progressive disclosure) ──
+│   │
+│   ├── project-onboard/                 # The main skill
+│   │   ├── SKILL.md                     # Orchestrates the full pipeline
+│   │   ├── references/
+│   │   │   ├── requirements-phase.md    # How to run requirements interview
+│   │   │   ├── review-phase.md          # How to review for gaps
+│   │   │   ├── design-phase.md          # How to run design interview
+│   │   │   ├── tasks-phase.md           # How to break into tasks
+│   │   │   └── claude-md-phase.md       # How to generate CLAUDE.md
+│   │   ├── assets/
+│   │   │   ├── requirements-template.md # Output template for requirements
+│   │   │   ├── design-template.md       # Output template for design
+│   │   │   ├── tasks-template.md        # Output template for tasks
+│   │   │   └── claude-md-template.md    # Output template for CLAUDE.md
+│   │   └── examples/
+│   │       └── repo-onboard.md          # Dogfooded: this project's own output
+│   │
+│   │ ── REVISE SKILLS (one per spec file) ──
+│   │
+│   ├── revise-requirements/
+│   │   └── SKILL.md                     # Reads existing, asks what changed
+│   ├── revise-design/
+│   │   └── SKILL.md                     # Reads reqs + design, re-interviews
+│   ├── revise-tasks/
+│   │   └── SKILL.md                     # Reads reqs + design, regenerates
+│   │
+│   │ ── SUPPORTING SKILLS (auto-discovered by Claude) ──
+│   │
+│   ├── explore-system/
+│   │   ├── SKILL.md
+│   │   └── assets/
+│   ├── investigate-bug/
+│   │   ├── SKILL.md
+│   │   └── assets/
+│   ├── stakeholder-brief/
+│   │   ├── SKILL.md
+│   │   └── assets/
+│   └── write-rfc/
+│       ├── SKILL.md
+│       └── assets/
 │
 ├── CLAUDE.md
 ├── README.md
@@ -108,36 +108,9 @@ Every description must answer:
 1. What does the skill do?
 2. When should Claude use it?
 
-Pipeline skill:
-```yaml
----
-name: project-onboard
-description: |
-  Conducts a guided spec interview through 5 phases — requirements,
-  review, design, tasks, and CLAUDE.md generation — producing a
-  complete project foundation. Use when the user wants to start a
-  new project, says they have an idea, or invokes /project-onboard.
-disable-model-invocation: true
----
-```
-
-Supporting skill:
-```yaml
----
-name: investigate-bug
-description: |
-  Produces a structured, manager-readable bug investigation report
-  with symptoms, root cause analysis, impact, and fix options.
-  Use when the user reports a bug, asks to debug, or says
-  "this isn't working."
----
-```
-
 ## Output rules
 
 - NEVER delete or overwrite files without asking
-- NEVER touch .claude/settings.json or settings.local.json
-- MERGE into .claude/skills/ — only add, never remove
 - CLAUDE.md: append if exists, create if not
 - Revise skills overwrite ONLY their single target file
 
@@ -154,14 +127,3 @@ description: |
 - Do NOT scan existing code (v1 is new projects only)
 - Do NOT cascade: revising requirements does NOT auto-update design
 - Do NOT assume — ask or flag with low confidence
-
-## Build order
-
-1. .claude/skills/project-onboard/SKILL.md (orchestrator)
-2. references/requirements-phase.md (already have this content)
-3. references/review-phase.md
-4. references/design-phase.md + references/tasks-phase.md
-5. references/claude-md-phase.md + all assets/templates
-6. .claude/skills/revise-requirements/ + revise-design/ + revise-tasks/
-7. Supporting skills: explore-system, investigate-bug, stakeholder-brief, write-rfc
-8. README.md + dogfood the whole pipeline
