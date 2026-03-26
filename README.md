@@ -19,38 +19,49 @@ Open Claude Code. It reads CLAUDE.md automatically. Start building.
 
 ## Installation
 
-### From GitHub (recommended)
+### Option 1: Install as a marketplace plugin (recommended)
 
-```bash
-claude plugin add https://github.com/dannyavrs/repo-onboard
+Inside Claude Code, run:
+
+```
+/plugin marketplace add dannyavrs/repo-onboard
 ```
 
-This installs the plugin and all its skills into your Claude Code environment.
+Then install the plugin:
 
-### Manual installation
+```
+/plugin install repo-onboard@repo-onboard
+```
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/dannyavrs/repo-onboard.git
-   ```
+You'll be prompted to choose the scope (user, project, or local).
 
-2. Copy the `.claude/` directory into your Claude Code plugins folder:
-   ```bash
-   cp -r repo-onboard/.claude ~/.claude/plugins/repo-onboard
-   ```
+### Option 2: Install from local directory
 
-3. Or symlink it for development:
-   ```bash
-   ln -s "$(pwd)/repo-onboard/.claude" ~/.claude/plugins/repo-onboard
-   ```
+Clone the repo and point Claude Code at it:
+
+```bash
+git clone https://github.com/dannyavrs/repo-onboard.git
+claude --plugin-dir ./repo-onboard
+```
+
+### Option 3: Manual copy
+
+Clone and copy the skill files directly into your project:
+
+```bash
+git clone https://github.com/dannyavrs/repo-onboard.git
+cp -r repo-onboard/.claude/skills/ your-project/.claude/skills/
+```
 
 ### Verify installation
 
 Open Claude Code and type:
+
 ```
 /project-onboard
 ```
-If the skill loads and starts asking about your project idea, you're set.
+
+If the skill loads and starts asking about your project idea, you're set. After installation, run `/reload-plugins` if the skill doesn't appear immediately.
 
 ## Usage
 
@@ -95,8 +106,10 @@ After running the pipeline, these skills are installed in your project and Claud
 
 ```
 repo-onboard/
-├── .claude/
+├── .claude-plugin/
 │   ├── plugin.json                          # Plugin metadata
+│   └── marketplace.json                     # Marketplace listing
+├── .claude/
 │   ├── settings.json                        # Plugin settings
 │   └── skills/
 │       ├── project-onboard/                 # Main pipeline skill
