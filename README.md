@@ -109,31 +109,29 @@ repo-onboard/
 ├── .claude-plugin/
 │   ├── plugin.json                          # Plugin metadata
 │   └── marketplace.json                     # Marketplace listing
-├── .claude/
-│   ├── settings.json                        # Plugin settings
-│   └── skills/
-│       ├── project-onboard/                 # Main pipeline skill
-│       │   ├── SKILL.md                     # Orchestrates the 5 phases
-│       │   ├── references/
-│       │   │   ├── requirements-phase.md    # How to run requirements interview
-│       │   │   ├── review-phase.md          # How to review for gaps
-│       │   │   ├── design-phase.md          # How to run design interview
-│       │   │   ├── tasks-phase.md           # How to break into tasks
-│       │   │   └── claude-md-phase.md       # How to generate CLAUDE.md
-│       │   ├── assets/
-│       │   │   ├── requirements-template.md # Output template for requirements
-│       │   │   ├── design-template.md       # Output template for design
-│       │   │   ├── tasks-template.md        # Output template for tasks
-│       │   │   └── claude-md-template.md    # Output template for CLAUDE.md
-│       │   └── examples/
-│       │       └── repo-onboard.md          # Dogfooded: this project's own output
-│       ├── revise-requirements/             # Revise requirements only
-│       ├── revise-design/                   # Revise design only
-│       ├── revise-tasks/                    # Revise tasks only
-│       ├── explore-system/                  # Codebase overview skill
-│       ├── investigate-bug/                 # Bug investigation skill
-│       ├── stakeholder-brief/               # Non-technical briefing skill
-│       └── write-rfc/                       # Technical decision document skill
+├── skills/                                  # All plugin skills (root level)
+│   ├── project-onboard/                     # Main pipeline skill
+│   │   ├── SKILL.md                         # Orchestrates the 5 phases
+│   │   ├── references/
+│   │   │   ├── requirements-phase.md        # How to run requirements interview
+│   │   │   ├── review-phase.md              # How to review for gaps
+│   │   │   ├── design-phase.md              # How to run design interview
+│   │   │   ├── tasks-phase.md               # How to break into tasks
+│   │   │   └── claude-md-phase.md           # How to generate CLAUDE.md
+│   │   ├── assets/
+│   │   │   ├── requirements-template.md     # Output template for requirements
+│   │   │   ├── design-template.md           # Output template for design
+│   │   │   ├── tasks-template.md            # Output template for tasks
+│   │   │   └── claude-md-template.md        # Output template for CLAUDE.md
+│   │   └── examples/
+│   │       └── repo-onboard.md              # Dogfooded: this project's own output
+│   ├── revise-requirements/                 # Revise requirements only
+│   ├── revise-design/                       # Revise design only
+│   ├── revise-tasks/                        # Revise tasks only
+│   ├── explore-system/                      # Codebase overview skill
+│   ├── investigate-bug/                     # Bug investigation skill
+│   ├── stakeholder-brief/                   # Non-technical briefing skill
+│   └── write-rfc/                           # Technical decision document skill
 ├── docs/
 │   └── requirements.md                      # This project's own requirements
 ├── CLAUDE.md                                # Claude Code instructions for this repo
