@@ -6,7 +6,6 @@ description: |
   asks what changed, and rewrites design.md only. Use when the user
   says their architecture changed, they picked a different tech stack,
   or they want to update the design.
-disable-model-invocation: true
 ---
 
 # Revise design

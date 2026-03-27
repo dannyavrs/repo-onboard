@@ -6,7 +6,6 @@ description: |
   what changed, and rewrites that file only. Use when the user says
   their requirements changed, they want to update the spec, or they
   realized something is wrong with the requirements.
-disable-model-invocation: true
 ---
 
 # Revise requirements
