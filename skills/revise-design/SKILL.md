@@ -3,10 +3,9 @@ name: revise-design
 description: |
   Re-interviews the user to update an existing design spec. Reads
   docs/requirements.md and docs/design.md, shows current design,
-  asks what changed, and rewrites design.md only. Use when the user
-  says their architecture changed, they picked a different tech stack,
-  or they want to update the design.
-context: fork
+  asks what changed, and rewrites design.md only.
+  Only invoke when the user explicitly types /repo-onboard:revise-design.
+  Do NOT auto-trigger this skill.
 ---
 
 # Revise design

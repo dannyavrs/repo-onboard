@@ -2,11 +2,9 @@
 name: write-rfc
 description: |
   Produces a technical decision document (RFC) that captures what
-  was decided, what alternatives were considered, and why. Use when
-  the user makes an architecture decision, chooses between approaches,
-  needs to document a tradeoff, or says "we need to decide between
-  X and Y."
-disable-model-invocation: true
+  was decided, what alternatives were considered, and why.
+  Only invoke when the user explicitly types /repo-onboard:write-rfc.
+  Do NOT auto-trigger this skill.
 ---
 
 # Write RFC

@@ -3,10 +3,9 @@ name: explore-system
 description: |
   Produces a structured overview of a codebase or system. Analyzes
   directory structure, entry points, architecture patterns, and key
-  files. Use when the user asks to understand a project, says "what
-  does this codebase do", "explain this repo", or needs to onboard
-  to an existing system.
-disable-model-invocation: true
+  files.
+  Only invoke when the user explicitly types /repo-onboard:explore-system.
+  Do NOT auto-trigger this skill.
 ---
 
 # Explore system

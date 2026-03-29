@@ -3,10 +3,9 @@ name: investigate-bug
 description: |
   Produces a structured bug investigation report with symptoms,
   root cause analysis, impact assessment, and fix options. Output
-  is readable by both developers and managers. Use when the user
-  reports a bug, says something isn't working, asks to debug an
-  issue, or needs to document a bug for their team.
-disable-model-invocation: true
+  is readable by both developers and managers.
+  Only invoke when the user explicitly types /repo-onboard:investigate-bug.
+  Do NOT auto-trigger this skill.
 ---
 
 # Investigate bug

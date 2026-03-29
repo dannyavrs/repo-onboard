@@ -3,11 +3,9 @@ name: project-onboard
 description: |
   Conducts a guided spec interview through 5 phases — requirements,
   review, design, tasks, and CLAUDE.md generation — producing a complete
-  project foundation with confidence scoring. Use when the user wants to
-  start a new project, says they have an idea, or needs to create specs
-  before writing code.
-disable-model-invocation: true
-context: fork
+  project foundation with confidence scoring.
+  Only invoke when the user explicitly types /repo-onboard:project-onboard.
+  Do NOT auto-trigger this skill.
 ---
 
 # Project onboard pipeline
