@@ -63,42 +63,23 @@ If the skill loads and starts asking about your project idea, you're set.
 
 ## Usage
 
-### Start a new project
+Type `/repo-onboard:help` to see all available commands.
 
-```
-/repo-onboard:project-onboard
-```
+### All commands
 
-Runs the full 5-phase pipeline:
+| Command | Description |
+|---------|-------------|
+| `/repo-onboard:project-onboard` | Guided spec interview through 5 phases — requirements, review, design, tasks, and CLAUDE.md. Start here for new projects. |
+| `/repo-onboard:revise-requirements` | Re-interview and update docs/requirements.md only. |
+| `/repo-onboard:revise-design` | Re-interview and update docs/design.md only. |
+| `/repo-onboard:revise-tasks` | Regenerate docs/tasks.md from current specs. No interview needed. |
+| `/repo-onboard:explore-system` | Structured codebase overview — understand a project in 15 minutes. |
+| `/repo-onboard:investigate-bug` | Bug investigation report with root cause, impact, and fix options. |
+| `/repo-onboard:stakeholder-brief` | Translate technical decisions into a non-technical stakeholder brief. |
+| `/repo-onboard:write-rfc` | Document a technical decision with alternatives and tradeoffs. |
+| `/repo-onboard:help` | Show all available skills and how to call them. |
 
-1. **Requirements interview** — who is this for, what problem does it solve, what does success look like
-2. **Review** — checks your requirements for gaps and contradictions
-3. **Design interview** — data flow, architecture, dependencies, tech stack
-4. **Task breakdown** — phased, ordered tasks with acceptance criteria
-5. **CLAUDE.md generation** — best-practice configuration for Claude Code
-
-The interview asks **one question at a time** and pushes back on vague answers. It flags uncertainty with confidence scores instead of guessing.
-
-### Revise specs later
-
-```
-/repo-onboard:revise-requirements    # Re-interview requirements, update that file only
-/repo-onboard:revise-design          # Re-interview design, update that file only
-/repo-onboard:revise-tasks           # Regenerate tasks from current specs
-```
-
-Each revise command updates **only its target file**. Revising requirements does NOT auto-update design or tasks — that's intentional. You decide when to cascade changes.
-
-### Supporting skills (installed automatically)
-
-After running the pipeline, these skills are installed in your project and Claude uses them automatically when relevant:
-
-| Skill | What it does | When Claude uses it |
-|---|---|---|
-| **explore-system** | Structured codebase overview | When you ask to understand a project |
-| **investigate-bug** | Bug diagnosis readable by managers | When you report a bug or say "this isn't working" |
-| **stakeholder-brief** | Translate tech decisions to business language | When you need to explain something to non-technical people |
-| **write-rfc** | Document technical decisions with alternatives | When you're choosing between approaches |
+All skills are manually invoked — none auto-trigger. Each revise command updates **only its target file**. Revising requirements does NOT auto-update design or tasks — you decide when to cascade changes.
 
 ## Plugin structure
 
@@ -129,7 +110,8 @@ repo-onboard/
 │   ├── explore-system/                      # Codebase overview skill
 │   ├── investigate-bug/                     # Bug investigation skill
 │   ├── stakeholder-brief/                   # Non-technical briefing skill
-│   └── write-rfc/                           # Technical decision document skill
+│   ├── write-rfc/                           # Technical decision document skill
+│   └── help/                                # Lists all available skills
 ├── docs/
 │   └── requirements.md                      # This project's own requirements
 ├── CLAUDE.md                                # Claude Code instructions for this repo
@@ -193,7 +175,7 @@ repos, enforce specs during development, or auto-update docs
 when code changes. It gives you the best possible starting
 point. What you build from there is up to you.
 
-All skills use disable-model-invocation — they never auto-trigger.
+All skills are manually invoked — they never auto-trigger.
 You invoke them explicitly when you need them.
 
 ## Built with
