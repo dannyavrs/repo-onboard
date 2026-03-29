@@ -7,6 +7,7 @@ description: |
   start a new project, says they have an idea, or needs to create specs
   before writing code.
 disable-model-invocation: true
+context: fork
 ---
 
 # Project onboard pipeline
@@ -94,6 +95,7 @@ user's project. If `.claude/skills/` doesn't exist, create it.
 NEVER touch `.claude/settings.json` or any existing files.
 
 Skills to install:
+
 - explore-system
 - investigate-bug
 - stakeholder-brief
@@ -102,15 +104,20 @@ Skills to install:
 ### Done
 
 Tell the user:
-"Your project foundation is ready. You have:
+"Your project foundation is ready:
 - docs/requirements.md — what you're building and why
 - docs/design.md — how you're building it
 - docs/tasks.md — the order to build it
 - CLAUDE.md — Claude Code configuration
-- .claude/skills/ — supporting tools for development
+- .claude/skills/ — supporting tools (invoke with / when needed)
 
-Open Claude Code in this directory. It will read CLAUDE.md automatically.
-Start with the first task in docs/tasks.md."
+Your next step: use Claude Code's plan mode. The plan will be
+dramatically better because it has structured specs to work from.
+
+If your requirements or design change later, use:
+/repo-onboard:revise-requirements
+/repo-onboard:revise-design
+/repo-onboard:revise-tasks"
 
 ## Rules that apply to ALL phases
 

@@ -6,6 +6,7 @@ description: |
   files. Use when the user asks to understand a project, says "what
   does this codebase do", "explain this repo", or needs to onboard
   to an existing system.
+disable-model-invocation: true
 ---
 
 # Explore system

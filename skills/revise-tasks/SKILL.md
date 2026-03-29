@@ -5,6 +5,7 @@ description: |
   docs/requirements.md and docs/design.md, then produces a fresh
   docs/tasks.md. No interview needed — tasks are derived from specs.
   Use when requirements or design changed and tasks need updating.
+context: fork
 ---
 
 # Revise tasks

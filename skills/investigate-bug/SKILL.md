@@ -6,6 +6,7 @@ description: |
   is readable by both developers and managers. Use when the user
   reports a bug, says something isn't working, asks to debug an
   issue, or needs to document a bug for their team.
+disable-model-invocation: true
 ---
 
 # Investigate bug

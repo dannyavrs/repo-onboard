@@ -1,8 +1,6 @@
 # repo-onboard
 
-**From idea to structured project — before writing any code.**
-
-A Claude Code plugin that guides developers through a structured spec interview, producing professional requirements, design, tasks, and CLAUDE.md. Built for developers who have a project idea but no code yet.
+**repo-onboard turns your messy idea into structured specs. Claude Code's plan mode does the rest — and it does it 10x better with specs than without.**
 
 ## What it does
 
@@ -30,7 +28,7 @@ Inside Claude Code, run:
 Then install the plugin:
 
 ```
-/plugin install repo-onboard@repo-onboard
+/plugin install repo-onboard@dannyavrs
 ```
 
 You'll be prompted to choose the scope (user, project, or local).
@@ -55,20 +53,20 @@ cp -r repo-onboard/.claude/skills/ your-project/.claude/skills/
 
 ### Verify installation
 
-Open Claude Code and type:
+Open Claude Code and run `/reload-plugins`, then type:
 
 ```
-/project-onboard
+/repo-onboard:project-onboard
 ```
 
-If the skill loads and starts asking about your project idea, you're set. After installation, run `/reload-plugins` if the skill doesn't appear immediately.
+If the skill loads and starts asking about your project idea, you're set.
 
 ## Usage
 
 ### Start a new project
 
 ```
-/project-onboard
+/repo-onboard:project-onboard
 ```
 
 Runs the full 5-phase pipeline:
@@ -84,9 +82,9 @@ The interview asks **one question at a time** and pushes back on vague answers. 
 ### Revise specs later
 
 ```
-/revise-requirements    # Re-interview requirements, update that file only
-/revise-design          # Re-interview design, update that file only
-/revise-tasks           # Regenerate tasks from current specs
+/repo-onboard:revise-requirements    # Re-interview requirements, update that file only
+/repo-onboard:revise-design          # Re-interview design, update that file only
+/repo-onboard:revise-tasks           # Regenerate tasks from current specs
 ```
 
 Each revise command updates **only its target file**. Revising requirements does NOT auto-update design or tasks — that's intentional. You decide when to cascade changes.
@@ -144,7 +142,7 @@ repo-onboard/
 The plugin uses **progressive disclosure** — Claude never loads all phases into context at once. The main `SKILL.md` orchestrates the pipeline and tells Claude when to load each reference file:
 
 ```
-/project-onboard invoked
+/repo-onboard:project-onboard invoked
   → SKILL.md loaded (orchestration logic)
     → Phase 1: loads requirements-phase.md → interviews → saves docs/requirements.md
     → Phase 2: loads review-phase.md → checks for gaps → loops back if needed
@@ -171,7 +169,7 @@ The tool's responsibility ends when the files are generated. What you build afte
 
 ## Generated output example
 
-After running `/project-onboard`, your project directory looks like:
+After running `/repo-onboard:project-onboard`, your project directory looks like:
 
 ```
 my-project/
@@ -189,12 +187,14 @@ Each document includes **confidence scores** (high/medium/low) on every section,
 
 ## Scope boundary
 
-repo-onboard is a project initiation tool. It produces specs and configuration. It does NOT:
+repo-onboard is a project initiation tool. It produces specs
+and configuration. It does NOT generate code, analyze existing
+repos, enforce specs during development, or auto-update docs
+when code changes. It gives you the best possible starting
+point. What you build from there is up to you.
 
-- Generate application code
-- Analyze existing repositories (v1 is new projects only)
-- Enforce specs during development
-- Auto-update docs when code changes
+All skills use disable-model-invocation — they never auto-trigger.
+You invoke them explicitly when you need them.
 
 ## Built with
 

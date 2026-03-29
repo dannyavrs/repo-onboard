@@ -6,6 +6,7 @@ description: |
   the user makes an architecture decision, chooses between approaches,
   needs to document a tradeoff, or says "we need to decide between
   X and Y."
+disable-model-invocation: true
 ---
 
 # Write RFC

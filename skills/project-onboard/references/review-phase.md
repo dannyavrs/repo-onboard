@@ -23,6 +23,16 @@ Read docs/requirements.md and attack it for weaknesses.
 - Are there decision points in the journey that aren't resolved?
 - Does any section say "TBD" or equivalent?
 
+### Implicit decisions
+- Are there format or structure details assumed but not stated?
+  (file encoding, header rows, delimiters, line endings, config
+  file format, default values)
+- Are there decisions that will need to be made during
+  implementation but weren't discussed?
+- Does the output format have ambiguities that could cause
+  problems? (e.g., CSV with or without headers, JSON pretty
+  printed or minified)
+
 ### Confidence gaps
 - Are any sections marked confidence: low without a verification note?
 - Are there sections that should be low confidence but are marked high?

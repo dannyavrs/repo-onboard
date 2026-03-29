@@ -7,6 +7,7 @@ description: |
   needs to explain something technical to their manager, write a
   status update for leadership, or communicate a technical decision
   to non-technical people.
+disable-model-invocation: true
 ---
 
 # Stakeholder brief
