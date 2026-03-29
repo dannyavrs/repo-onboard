@@ -6,6 +6,7 @@ description: |
   project foundation with confidence scoring. Use when the user wants to
   start a new project, says they have an idea, or needs to create specs
   before writing code.
+disable-model-invocation: true
 ---
 
 # Project onboard pipeline
