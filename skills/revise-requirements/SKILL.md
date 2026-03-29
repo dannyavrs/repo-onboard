@@ -4,7 +4,7 @@ description: |
   Re-interviews the user to update an existing requirements spec.
   Reads the current docs/requirements.md, shows what exists, asks
   what changed, and rewrites that file only.
-  Only invoke when the user explicitly types /repo-onboard:revise-requirements.
+  Only invoke when the user explicitly types repo-onboard:revise-requirements.
   Do NOT auto-trigger this skill.
 ---
 

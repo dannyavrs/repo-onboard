@@ -4,7 +4,7 @@ description: |
   Produces a structured bug investigation report with symptoms,
   root cause analysis, impact assessment, and fix options. Output
   is readable by both developers and managers.
-  Only invoke when the user explicitly types /repo-onboard:investigate-bug.
+  Only invoke when the user explicitly types repo-onboard:investigate-bug.
   Do NOT auto-trigger this skill.
 ---
 

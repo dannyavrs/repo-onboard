@@ -56,28 +56,28 @@ cp -r repo-onboard/.claude/skills/ your-project/.claude/skills/
 Open Claude Code and run `/reload-plugins`, then type:
 
 ```
-/repo-onboard:project-onboard
+repo-onboard:project-onboard
 ```
 
 If the skill loads and starts asking about your project idea, you're set.
 
 ## Usage
 
-Type `/repo-onboard:help` to see all available commands.
+Type `repo-onboard:help` to see all available commands.
 
 ### All commands
 
 | Command | Description |
 |---------|-------------|
-| `/repo-onboard:project-onboard` | Guided spec interview through 5 phases — requirements, review, design, tasks, and CLAUDE.md. Start here for new projects. |
-| `/repo-onboard:revise-requirements` | Re-interview and update docs/requirements.md only. |
-| `/repo-onboard:revise-design` | Re-interview and update docs/design.md only. |
-| `/repo-onboard:revise-tasks` | Regenerate docs/tasks.md from current specs. No interview needed. |
-| `/repo-onboard:explore-system` | Structured codebase overview — understand a project in 15 minutes. |
-| `/repo-onboard:investigate-bug` | Bug investigation report with root cause, impact, and fix options. |
-| `/repo-onboard:stakeholder-brief` | Translate technical decisions into a non-technical stakeholder brief. |
-| `/repo-onboard:write-rfc` | Document a technical decision with alternatives and tradeoffs. |
-| `/repo-onboard:help` | Show all available skills and how to call them. |
+| `repo-onboard:project-onboard` | Guided spec interview through 5 phases — requirements, review, design, tasks, and CLAUDE.md. Start here for new projects. |
+| `repo-onboard:revise-requirements` | Re-interview and update docs/requirements.md only. |
+| `repo-onboard:revise-design` | Re-interview and update docs/design.md only. |
+| `repo-onboard:revise-tasks` | Regenerate docs/tasks.md from current specs. No interview needed. |
+| `repo-onboard:explore-system` | Structured codebase overview — understand a project in 15 minutes. |
+| `repo-onboard:investigate-bug` | Bug investigation report with root cause, impact, and fix options. |
+| `repo-onboard:stakeholder-brief` | Translate technical decisions into a non-technical stakeholder brief. |
+| `repo-onboard:write-rfc` | Document a technical decision with alternatives and tradeoffs. |
+| `repo-onboard:help` | Show all available skills and how to call them. |
 
 All skills are manually invoked — none auto-trigger. Each revise command updates **only its target file**. Revising requirements does NOT auto-update design or tasks — you decide when to cascade changes.
 
@@ -124,7 +124,7 @@ repo-onboard/
 The plugin uses **progressive disclosure** — Claude never loads all phases into context at once. The main `SKILL.md` orchestrates the pipeline and tells Claude when to load each reference file:
 
 ```
-/repo-onboard:project-onboard invoked
+repo-onboard:project-onboard invoked
   → SKILL.md loaded (orchestration logic)
     → Phase 1: loads requirements-phase.md → interviews → saves docs/requirements.md
     → Phase 2: loads review-phase.md → checks for gaps → loops back if needed
@@ -151,7 +151,7 @@ The tool's responsibility ends when the files are generated. What you build afte
 
 ## Generated output example
 
-After running `/repo-onboard:project-onboard`, your project directory looks like:
+After running `repo-onboard:project-onboard`, your project directory looks like:
 
 ```
 my-project/

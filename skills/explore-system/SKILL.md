@@ -4,7 +4,7 @@ description: |
   Produces a structured overview of a codebase or system. Analyzes
   directory structure, entry points, architecture patterns, and key
   files.
-  Only invoke when the user explicitly types /repo-onboard:explore-system.
+  Only invoke when the user explicitly types repo-onboard:explore-system.
   Do NOT auto-trigger this skill.
 ---
 

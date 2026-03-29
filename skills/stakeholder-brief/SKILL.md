@@ -4,7 +4,7 @@ description: |
   Translates technical findings, decisions, or status into a brief
   readable by non-technical stakeholders. Strips jargon, focuses on
   business impact, and provides clear next steps.
-  Only invoke when the user explicitly types /repo-onboard:stakeholder-brief.
+  Only invoke when the user explicitly types repo-onboard:stakeholder-brief.
   Do NOT auto-trigger this skill.
 ---
 

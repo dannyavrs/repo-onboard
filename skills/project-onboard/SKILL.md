@@ -4,7 +4,7 @@ description: |
   Conducts a guided spec interview through 5 phases — requirements,
   review, design, tasks, and CLAUDE.md generation — producing a complete
   project foundation with confidence scoring.
-  Only invoke when the user explicitly types /repo-onboard:project-onboard.
+  Only invoke when the user explicitly types repo-onboard:project-onboard.
   Do NOT auto-trigger this skill.
 ---
 
@@ -113,9 +113,9 @@ Your next step: use Claude Code's plan mode. The plan will be
 dramatically better because it has structured specs to work from.
 
 If your requirements or design change later, use:
-/repo-onboard:revise-requirements
-/repo-onboard:revise-design
-/repo-onboard:revise-tasks"
+repo-onboard:revise-requirements
+repo-onboard:revise-design
+repo-onboard:revise-tasks"
 
 ## Rules that apply to ALL phases
 

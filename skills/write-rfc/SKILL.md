@@ -3,7 +3,7 @@ name: write-rfc
 description: |
   Produces a technical decision document (RFC) that captures what
   was decided, what alternatives were considered, and why.
-  Only invoke when the user explicitly types /repo-onboard:write-rfc.
+  Only invoke when the user explicitly types repo-onboard:write-rfc.
   Do NOT auto-trigger this skill.
 ---
 

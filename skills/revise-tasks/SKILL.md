@@ -4,7 +4,7 @@ description: |
   Regenerates the task breakdown from current specs. Reads
   docs/requirements.md and docs/design.md, then produces a fresh
   docs/tasks.md. No interview needed — tasks are derived from specs.
-  Only invoke when the user explicitly types /repo-onboard:revise-tasks.
+  Only invoke when the user explicitly types repo-onboard:revise-tasks.
   Do NOT auto-trigger this skill.
 ---
 
